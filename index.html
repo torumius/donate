@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Support Me</title>
+  <link rel="icon" href="fav.png" type="image/png">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial;
+      background: #f4dede;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .card {
+      background: #fbeaea;
+      width: 100%;
+      max-width: 500px;
+      padding: 30px 20px;
+      border-radius: 25px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+
+    .avatar {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 15px;
+      background: #ccc;
+    }
+
+    .icon {
+      width: 22px;
+      height: 22px;
+      vertical-align: middle;
+      margin-right: 10px;
+    }
+
+    h1 {
+      font-size: 20px;
+      margin: 5px 0;
+    }
+
+    p {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 25px;
+    }
+
+    .link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: white;
+      padding: 15px;
+      margin: 12px 0;
+      border-radius: 30px;
+      text-decoration: none;
+      color: black;
+      font-weight: 500;
+      cursor: pointer;
+    }
+
+    .link:hover {
+      background: #fff7f7;
+    }
+
+    .crypto-box {
+      display: block;            
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      margin-top: 0;
+      padding: 0 15px;
+      background: white;
+      border-radius: 15px;
+      font-size: 13px;
+      word-break: break-all;
+      transition: max-height 0.4s ease, opacity 0.4s ease, margin-top 0.4s ease, padding 0.4s ease;
+    }
+
+    .crypto-box.show {
+      max-height: 300px;
+      opacity: 1;
+      margin-top: 15px;
+      padding: 15px;
+    }
+
+    .crypto-box img {
+      max-width: 260px;
+      margin-bottom: 10px;
+    }
+
+    .address {
+      cursor: pointer;
+      color: #333;
+      text-decoration: underline;
+      transition: background-color 0.5s ease;
+    }
+
+    .highlight {
+      background-color: #fff59d; 
+    }
+
+    .footer {
+      margin-top: 25px;
+      font-size: 12px;
+      color: #aaa;
+    }
+
+    .notification {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #4CAF50;
+      color: white;
+      padding: 8px 15px;
+      border-radius: 20px;
+      font-size: 13px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s, top 0.3s;
+      z-index: 9999;
+    }
+
+    .notification.show {
+      top: 40px;
+      opacity: 1;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Notification -->
+  <div class="notification" id="notify">Address copied!</div>
+
+  <div class="card">
+
+    <img src="avatar.png" class="avatar" alt="avatar">
+    <h1>toruumi</h1>
+    <p>Toru / cosplayer</p>
+    <p>Crypto support helps me make better cosplay, upgrade props, and share the process. Every donation goes straight to materials, shoots, and content.</p>
+
+    <!-- Bitcoin -->
+    <div class="link" onclick="toggle('btc')"><img src="btc.png" class="icon" alt="BTC"> Bitcoin (BTC)</div>
+    <div id="btc" class="crypto-box">
+      <img src="btcqr.png" alt="BTC QR"><br>
+      <span class="address">bc1qf2e9f63wz2t2gmlw4glhd7cxekkdqqc4q88gme</span>
+    </div>
+
+    <!-- Ethereum -->
+    <div class="link" onclick="toggle('eth')"><img src="eth.png" class="icon" alt="ETH"> Ethereum (ETH)</div>
+    <div id="eth" class="crypto-box">
+      <img src="ethqr.png" alt="ETH QR"><br>
+      <span class="address">0xEA0D3004F93be3583F86e24c88837D067AF4C2c2</span>
+    </div>
+
+    <!-- USDT ERC20 -->
+    <div class="link" onclick="toggle('usdterc20')"><img src="usdterc20.png" class="icon" alt="USDT"> USDT Ethereum (ERC20) </div>
+    <div id="usdterc20" class="crypto-box">
+      <img src="usdterc20qr.png" alt="USDTERC20 QR"><br>
+      <span class="address">0xEA0D3004F93be3583F86e24c88837D067AF4C2c2</span>
+    </div>
+
+    <!-- USDT TRC20 -->
+    <div class="link" onclick="toggle('usdttrc20')"><img src="usdttrc20.png" class="icon" alt="USDT"> USDT Tron (TRC20) </div>
+    <div id="usdttrc20" class="crypto-box">
+      <img src="usdttrc20qr.png" alt="USDTTRC20 QR"><br>
+      <span class="address">TChuUdYA3rqNupzecZ5FFzrZJu18Zfgin1</span>
+    </div>
+
+    <!-- USDC ERC20 -->
+    <div class="link" onclick="toggle('usdcerc20')"><img src="usdcerc20.png" class="icon" alt="USDC"> USDC Ethereum (ERC20) </div>
+    <div id="usdcerc20" class="crypto-box">
+      <img src="usdcerc20qr.png" alt="USDCERC20 QR"><br>
+      <span class="address">0xEA0D3004F93be3583F86e24c88837D067AF4C2c2</span>
+    </div>
+
+    <!-- Solana -->
+    <div class="link" onclick="toggle('sol')"><img src="sol.png" class="icon" alt="SOL"> Solana (SOL)</div>
+    <div id="sol" class="crypto-box">
+      <img src="solqr.png" alt="SOL QR"><br>
+      <span class="address">ce1dZCR5oZTwPaN8utpQ9TwNDj7aDLkEriKynrxiTNt</span>
+    </div>
+
+    <!-- Ripple -->
+    <div class="link" onclick="toggle('xrp')"><img src="xrp.png" class="icon" alt="XRP"> Ripple (XRP)</div>
+    <div id="xrp" class="crypto-box">
+      <img src="xrpqr.png" alt="XRP QR"><br>
+      <span class="address">rNUNu7FE4uqLHXY6iqu71HFiW4e2FDcLuC</span>
+    </div>
+
+    <!-- Dogecoin -->
+    <div class="link" onclick="toggle('doge')"><img src="doge.png" class="icon" alt="DOGE"> Dogecoin (DOGE)</div>
+    <div id="doge" class="crypto-box">
+      <img src="dogeqr.png" alt="DOGE QR"><br>
+      <span class="address">D9ZpTVrd5UYDnkuNgF32okdCNQAxcoU6yZ</span>
+    </div>
+
+    <!-- Tron -->
+    <div class="link" onclick="toggle('trx')"><img src="trx.png" class="icon" alt="TRX"> Tron (TRX)</div>
+    <div id="trx" class="crypto-box">
+      <img src="trxqr.png" alt="TRX QR"><br>
+      <span class="address">TChuUdYA3rqNupzecZ5FFzrZJu18Zfgin1</span>
+    </div>
+
+    <div class="footer">
+      Thank you for your support
+    </div>
+
+  </div>
+
+  <script>
+    // Toggle crypto box with animation
+    function toggle(id) {
+      const el = document.getElementById(id);
+      el.classList.toggle("show");
+    }
+
+    // Copy address, show notification, highlight
+    function copyToClipboard(el) {
+      const text = el.textContent.trim();
+      navigator.clipboard.writeText(text).then(() => {
+        // Notification
+        const notify = document.getElementById("notify");
+        notify.classList.add("show");
+        setTimeout(() => notify.classList.remove("show"), 2000);
+
+        // Highlight address
+        el.classList.add("highlight");
+        setTimeout(() => el.classList.remove("highlight"), 500);
+      }).catch(err => {
+        console.error("Copy failed: ", err);
+      });
+    }
+
+    // Add click listener to all addresses
+    window.addEventListener("DOMContentLoaded", () => {
+      document.querySelectorAll(".crypto-box .address").forEach(el => {
+        el.addEventListener("click", () => copyToClipboard(el));
+      });
+    });
+  </script>
+
+</body>
+</html>
